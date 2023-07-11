@@ -1,8 +1,9 @@
 let dataArray = []
 
-calculateArray = (array) => {
+addRow = () => {
+    dataArray.push({name: "Thanamatee" , sirname : "Yusiri"})
     let htmlStr = ""
-    array.forEach((data) => {
+    dataArray.forEach((data) => {
         htmlStr += `<tr>
                     <td>${data.name}</td>
                     <td>${data.sirname}</td>
@@ -11,12 +12,14 @@ calculateArray = (array) => {
     document.getElementById('myTable').innerHTML = htmlStr
 }
 
-addRow = () => {
-    dataArray.push({name: "Earth" , sirname : "earth"})
-    calculateArray(dataArray)
-}
-
-deleteRow=() => {
+deleteRow=()=>{
     dataArray.pop()
-    calculateArray(dataArray)
+    let htmlStr = ""
+    dataArray.forEach((data) => {
+        htmlStr += `<tr>
+                    <td>${data.name}</td>
+                    <td>${data.sirname}</td>
+                    </tr>`
+    })
+    document.getElementById('myTable').innerHTML = htmlStr
 }
